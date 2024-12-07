@@ -8,4 +8,5 @@ public interface Animal {
     public Double getCost();
 
     public String getCharacter();
+
 }
