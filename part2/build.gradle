@@ -1,0 +1,18 @@
+plugins {
+    id 'application'
+}
+
+group 'ru.evendot'
+version '1.0-SNAPSHOT'
+
+
+application {
+    mainClassName = "ru.evendot.Main"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
