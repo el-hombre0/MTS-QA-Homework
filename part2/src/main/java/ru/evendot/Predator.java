@@ -1,12 +1,15 @@
 package ru.evendot;
 
+import java.time.LocalDate;
+
 public class Predator extends AbstractAnimal {
 
     protected String breed; // Порода
     protected String name; // Имя
     protected Double cost; // Стоимость
     protected String character; // Характер
-
+    protected LocalDate birthDate; // День рождения животного в формате dd-MM-yyyy.
+    
     public Predator(String breed, String name, Double cost, String character){
         this.breed = breed;
         this.name = name;
