@@ -12,6 +12,17 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
     String[] characters;
     String[] animals;
 
+    /**
+    * Конструктор
+    * @param dogBreeds Массив пород собак
+    * @param catBreeds Массив пород котов
+    * @param wolfBreeds Массив пород волков
+    * @param sharkBreeds Массив пород акул
+    * @param names Массив имен
+    * @param costsDollars Массив стоимостей
+    * @param characters Массив характеров
+    * @param animals Массив типов животных
+     */
     public CreateAnimalServiceImpl(String[] dogBreeds, String[] catBreeds, String[] wolfBreeds,
             String[] sharkBreeds, String[] names, Double[] costsDollars, String[] characters,
             String[] animals) {
@@ -25,8 +36,14 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
         this.animals = animals;
     }
 
-    public void createAnimals(int N) {
+    /**
+     * Перегруженный метод по созданию массива уникальных животных заданного количества при помощи цикла for 
+     * @param N Количество уникальных животных
+     * @return Массив уникальных животных
+     */
+    public AbstractAnimal[] createAnimals(int N) {
         System.out.println("=================== overloaded createAnimals ===================");
+        AbstractAnimal[] overloadedAnimals = new AbstractAnimal[N];
 
         for (int i = 0; i < N; i++) {
             Random randAnimal = new Random();
@@ -40,7 +57,9 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
                             this.names[randName.nextInt(this.names.length)],
                             this.costsDollars[randCost.nextInt(this.costsDollars.length)],
                             this.characters[randCharacter.nextInt(this.characters.length)]);
-                    System.out.println(i + ": " + cat.toString());
+                    // System.out.println(i + ": " + cat.toString());
+                    overloadedAnimals[i] = cat;
+
                     break;
 
                 case 1:
@@ -49,7 +68,8 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
                             names[randName.nextInt(names.length)],
                             costsDollars[randCost.nextInt(costsDollars.length)],
                             characters[randCharacter.nextInt(characters.length)]);
-                    System.out.println(i + ": " + dog.toString());
+                    // System.out.println(i + ": " + dog.toString());
+                    overloadedAnimals[i] = dog;
                     break;
                 case 2:
                     Random randSharkBreed = new Random(sharkBreeds.length);
@@ -57,7 +77,8 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
                             names[randName.nextInt(names.length)],
                             costsDollars[randCost.nextInt(costsDollars.length)],
                             characters[randCharacter.nextInt(characters.length)]);
-                    System.out.println(i + ": " + shark.toString());
+                    // System.out.println(i + ": " + shark.toString());
+                    overloadedAnimals[i] = shark;
                     break;
                 case 3:
                     Random randWolfBreed = new Random(wolfBreeds.length);
@@ -65,7 +86,8 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
                             names[randName.nextInt(names.length)],
                             costsDollars[randCost.nextInt(costsDollars.length)],
                             characters[randCharacter.nextInt(characters.length)]);
-                    System.out.println(i + ": " + wolf.toString());
+                    // System.out.println(i + ": " + wolf.toString());
+                    overloadedAnimals[i] = wolf;
                     break;
                 default:
                     break;
@@ -73,10 +95,16 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
             }
 
         }
+        return overloadedAnimals;
     }
-
-    public void createAnimals() {
+/**
+     * Метод по созданию массива уникальных животных при помощи цикла do while 
+     * @return Массив уникальных животных
+     */
+    public AbstractAnimal[] createAnimals() {
         System.out.println("=================== do while createAnimals ===================");
+        final int N = 10;
+        AbstractAnimal[] doWhileAnimals = new AbstractAnimal[N];
         int i = 0;
         do {
             Random randAnimal = new Random();
@@ -90,7 +118,8 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
                             names[randName.nextInt(names.length)],
                             costsDollars[randCost.nextInt(costsDollars.length)],
                             characters[randCharacter.nextInt(characters.length)]);
-                    System.out.println(i + ": " + cat.toString());
+                    // System.out.println(i + ": " + cat.toString());
+                    doWhileAnimals[i] = cat;
                     break;
 
                 case 1:
@@ -99,7 +128,8 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
                             names[randName.nextInt(names.length)],
                             costsDollars[randCost.nextInt(costsDollars.length)],
                             characters[randCharacter.nextInt(characters.length)]);
-                    System.out.println(i + ": " + dog.toString());
+                    // System.out.println(i + ": " + dog.toString());
+                    doWhileAnimals[i] = dog;
                     break;
                 case 2:
                     Random randSharkBreed = new Random(sharkBreeds.length);
@@ -107,7 +137,8 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
                             names[randName.nextInt(names.length)],
                             costsDollars[randCost.nextInt(costsDollars.length)],
                             characters[randCharacter.nextInt(characters.length)]);
-                    System.out.println(i + ": " + shark.toString());
+                    // System.out.println(i + ": " + shark.toString());
+                    doWhileAnimals[i] = shark;
                     break;
                 case 3:
                     Random randWolfBreed = new Random(wolfBreeds.length);
@@ -115,13 +146,16 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
                             names[randName.nextInt(names.length)],
                             costsDollars[randCost.nextInt(costsDollars.length)],
                             characters[randCharacter.nextInt(characters.length)]);
-                    System.out.println(i + ": " + wolf.toString());
+                    // System.out.println(i + ": " + wolf.toString());
+                    doWhileAnimals[i] = wolf;
                     break;
                 default:
                     break;
 
             }
             i++;
-        } while (i < 10);
+        } while (i < N);
+
+        return doWhileAnimals;
     }
 }

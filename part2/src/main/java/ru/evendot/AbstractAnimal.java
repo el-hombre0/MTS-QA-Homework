@@ -8,4 +8,6 @@ public abstract class AbstractAnimal implements Animal {
     protected Double cost; // Стоимость
     protected String character; // Характер
     protected LocalDate birthDate; // День рождения животного в формате dd-MM-yyyy.
+
+    public abstract boolean equals(Object obj);
 }

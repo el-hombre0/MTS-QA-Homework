@@ -4,10 +4,23 @@ import java.util.Random;
 
 public interface CreateAnimalService {
 
-        default public void create10UniqueAnimals(String[] dogBreeds, String[] catBreeds, String[] wolfBreeds,
+        /**
+         * Получение 10 уникальных животных
+         * @param dogBreeds Массив пород собак
+         * @param catBreeds Массив пород котов
+         * @param wolfBreeds Массив пород волков
+         * @param sharkBreeds Массив пород акул
+         * @param names Массив имен
+         * @param costsDollars Массив стоимостей
+         * @param characters Массив характеров
+         * @param animals Массив типов животных
+         * @return Массив уникальных объектов животных
+         */
+        default public AbstractAnimal[] create10UniqueAnimals(String[] dogBreeds, String[] catBreeds, String[] wolfBreeds,
                         String[] sharkBreeds, String[] names, Double[] costsDollars, String[] characters,
                         String[] animals) {
                 System.out.println("=================== default createAnimals ===================");
+                AbstractAnimal[] defaultAnimals = new AbstractAnimal[10];
                 int i = 0;
                 while (i != 10) {
                         Random randAnimal = new Random();
@@ -21,7 +34,8 @@ public interface CreateAnimalService {
                                                         names[randName.nextInt(names.length)],
                                                         costsDollars[randCost.nextInt(costsDollars.length)],
                                                         characters[randCharacter.nextInt(characters.length)]);
-                                        System.out.println(i + ": " + cat.toString());
+                                        // System.out.println(i + ": " + cat.toString());
+                                        defaultAnimals[i] = cat;
                                         break;
 
                                 case 1:
@@ -30,7 +44,8 @@ public interface CreateAnimalService {
                                                         names[randName.nextInt(names.length)],
                                                         costsDollars[randCost.nextInt(costsDollars.length)],
                                                         characters[randCharacter.nextInt(characters.length)]);
-                                        System.out.println(i + ": " + dog.toString());
+                                        // System.out.println(i + ": " + dog.toString());
+                                        defaultAnimals[i] = dog;
                                         break;
                                 case 2:
                                         Random randSharkBreed = new Random(sharkBreeds.length);
@@ -38,7 +53,8 @@ public interface CreateAnimalService {
                                                         names[randName.nextInt(names.length)],
                                                         costsDollars[randCost.nextInt(costsDollars.length)],
                                                         characters[randCharacter.nextInt(characters.length)]);
-                                        System.out.println(i + ": " + shark.toString());
+                                        // System.out.println(i + ": " + shark.toString());
+                                        defaultAnimals[i] = shark;
                                         break;
                                 case 3:
                                         Random randWolfBreed = new Random(wolfBreeds.length);
@@ -46,7 +62,8 @@ public interface CreateAnimalService {
                                                         names[randName.nextInt(names.length)],
                                                         costsDollars[randCost.nextInt(costsDollars.length)],
                                                         characters[randCharacter.nextInt(characters.length)]);
-                                        System.out.println(i + ": " + wolf.toString());
+                                        // System.out.println(i + ": " + wolf.toString());
+                                        defaultAnimals[i] = wolf;
                                         break;
                                 default:
                                         break;
@@ -54,5 +71,6 @@ public interface CreateAnimalService {
                         }
                         i++;
                 }
+                return defaultAnimals;
         }
 }
